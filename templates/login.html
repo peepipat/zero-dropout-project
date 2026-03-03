@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เข้าสู่ระบบ - Zero Dropout</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 380px; text-align: center; }
+        h2 { color: #1a73e8; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 25px; font-size: 14px; }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #444; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 15px; }
+        .btn-login { width: 100%; padding: 12px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; }
+        .btn-login:hover { background: #1557b0; }
+        .footer-links { margin-top: 20px; font-size: 14px; }
+        .footer-links a { color: #1a73e8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>🚀 Zero Dropout</h2>
+        <p>ระบบวิเคราะห์ความเสี่ยงเด็กหลุดนอกระบบ</p>
+        
+        <form action="/dashboard">
+            <div class="form-group">
+                <label>อีเมล หรือ ชื่อผู้ใช้งาน</label>
+                <input type="text" name="identifier" placeholder="example@email.com หรือ username" required>
+            </div>
+            <div class="form-group">
+                <label>รหัสผ่าน</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-login">เข้าสู่ระบบ</button>
+        </form>
+
+        <div class="footer-links">
+            ยังไม่มีบัญชีผู้ใช้? <a href="/register">ลงทะเบียนครูใหม่</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ข้อมูลนักเรียน - Zero Dropout</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #f4f7f6; padding: 20px; }
+        .detail-card { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .stat-box { background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center; }
+        .stat-value { font-size: 24px; font-weight: bold; color: #1a73e8; }
+        .risk-indicator { padding: 15px; border-radius: 10px; color: white; text-align: center; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="detail-card">
+        <a href="/students" style="text-decoration:none; color:#1a73e8;">← กลับสู่รายชื่อ</a>
+        <h2 style="margin-bottom: 5px;">เด็กชาย สมหวัง ตั้งใจเรียน</h2>
+        <p style="color: #666;">รหัสนักเรียน: 12345 | ห้อง 6/1</p>
+        
+        <div class="info-grid">
+            <div class="stat-box">
+                <p>เกรดเฉลี่ย (GPA)</p>
+                <div class="stat-value">2.15</div>
+            </div>
+            <div class="stat-box">
+                <p>อัตราการเข้าเรียน</p>
+                <div class="stat-value">75%</div>
+            </div>
+        </div>
+
+        <div class="risk-indicator" style="background: #e74c3c;">
+            สถานะ: เสี่ยงสูง (แดง) - ควรได้รับการช่วยเหลือด่วน
+        </div>
+
+        <div style="margin-top: 20px; font-size: 14px; color: #555;">
+            <h4>ข้อมูลเพิ่มเติม:</h4>
+            <ul>
+                <li>สาเหตุหลัก: ขาดเรียนบ่อยในช่วง 1 เดือนที่ผ่านมา</li>
+                <li>สถานะการส่งต่อ: ส่งข้อมูลถึงครูแนะแนวแล้ว</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

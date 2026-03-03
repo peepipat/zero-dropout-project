@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลงทะเบียนผู้ใช้งาน - Zero Dropout</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 40px 0; margin: 0; }
+        .reg-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 450px; }
+        h2 { color: #1a73e8; text-align: center; margin-bottom: 25px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #444; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+        .row { display: flex; gap: 10px; }
+        .row > div { flex: 1; }
+        .btn-submit { width: 100%; padding: 12px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 20px; font-weight: bold; }
+        .btn-submit:hover { background: #1557b0; }
+        .error-msg { color: #e74c3c; font-size: 12px; margin-top: 5px; display: none; }
+        .login-link { text-align: center; margin-top: 15px; font-size: 14px; }
+        .login-link a { color: #1a73e8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="reg-card">
+        <h2>📝 ลงทะเบียนครู</h2>
+        <form id="regForm" action="/dashboard" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label>คำนำหน้า</label>
+                <select name="gender" required>
+                    <option value="">-- เลือกคำนำหน้า--</option>
+                    <option value="Male">นาย</option>
+                    <option value="Female">นางสาว</option>
+                    <option value="Other">นาง</option>
+                </select>
+            </div>
+
+            <div class="form-group row">
+                <div>
+                    <label>ชื่อ</label>
+                    <input type="text" name="firstname" placeholder="ชื่อ" required>
+                </div>
+                <div>
+                    <label>นามสกุล</label>
+                    <input type="text" name="lastname" placeholder="นามสกุล" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>ตำแหน่ง</label>
+                <select name="position" id="position" onchange="toggleRoomInput()" required>
+                    <option value="Advisor">ครูประจำชั้น (Advisor)</option>
+                    <option value="Counselor">ครูแนะแนว (Counselor)</option>
+                    <option value="Admin">ผู้บริหาร</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="roomGroup">
+                <label>ประจำชั้นห้อง (เช่น 6/1)</label>
+                <input type="text" name="classroom" id="classroom" placeholder="ระบุเลขห้อง">
+            </div>
+
+            <div class="form-group">
+                <label>อีเมล (ที่ใช้งานจริง)</label>
+                <input type="email" id="email" name="email" placeholder="example@school.ac.th" required>
+                <p id="emailError" class="error-msg">❌ กรุณาระบุรูปแบบอีเมลที่ถูกต้อง</p>
+            </div>
+
+            <div class="form-group">
+                <label>รหัสผ่าน</label>
+                <input type="password" id="password" name="password" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+                <label>ยืนยันรหัสผ่านอีกครั้ง</label>
+                <input type="password" id="confirm_password" required>
+                <p id="passError" class="error-msg">❌ รหัสผ่านไม่ตรงกัน</p>
+            </div>
+
+            <button type="submit" class="btn-submit">ยืนยันการลงทะเบียน</button>
+        </form>
+
+        <div class="login-link">
+            มีบัญชีอยู่แล้ว? <a href="/">กลับไปหน้า Login</a>
+        </div>
+    </div>
+
+    <script>
+        // ฟังก์ชันซ่อน/แสดงช่องกรอกห้องเรียน
+        function toggleRoomInput() {
+            const position = document.getElementById('position').value;
+            const roomGroup = document.getElementById('roomGroup');
+            roomGroup.style.display = (position === 'Advisor') ? 'block' : 'none';
+        }
+
+        // ฟังก์ชันตรวจสอบความถูกต้องก่อนส่ง
+        function validateForm() {
+            const pass = document.getElementById('password').value;
+            const confirmPass = document.getElementById('confirm_password').value;
+            const email = document.getElementById('email').value;
+            const passError = document.getElementById('passError');
+            const emailError = document.getElementById('emailError');
+            
+            let isValid = true;
+
+            // ตรวจรหัสผ่านให้ตรงกัน
+            if (pass !== confirmPass) {
+                passError.style.display = 'block';
+                isValid = false;
+            } else {
+                passError.style.display = 'none';
+            }
+
+            // ตรวจสอบ Email Format พื้นฐาน
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

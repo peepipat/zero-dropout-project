@@ -1,14 +1,31 @@
 from flask import Flask, render_template
 
-# สร้าง Instance ของ Flask
 app = Flask(__name__)
 
-# กำหนด Route (เส้นทาง) ของหน้าแรก
 @app.route('/')
-def home():
-    return render_template('index.html')
+def login(): return render_template('login.html')
 
-# ส่วนสำหรับรัน Server
+@app.route('/register')
+def register(): return render_template('register.html')
+
+@app.route('/dashboard')
+def dashboard(): return render_template('dashboard.html')
+
+# 2.1.1 ข้อมูลผู้ใช้
+@app.route('/profile')
+def profile(): return render_template('profile.html')
+
+# 2.1.2 ประวัติการใส่ข้อมูล
+@app.route('/history')
+def history(): return render_template('history.html')
+
+# 2.3.1 รายชื่อนักเรียนในห้อง
+@app.route('/students')
+def student_list(): return render_template('student_list.html')
+
+# 2.3.2 รายละเอียดนักเรียนรายบุคคล
+@app.route('/student_detail')
+def student_detail(): return render_template('student_detail.html')
+
 if __name__ == '__main__':
-    # debug=True จะช่วยให้เวลาเราแก้โค้ด หน้าเว็บจะอัปเดตให้อัตโนมัติ
     app.run(debug=True, port=5000)

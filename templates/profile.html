@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ข้อมูลผู้ใช้ - Zero Dropout</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn-save { background: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" style="text-decoration:none; color:#1a73e8;">← กลับสู่ Dashboard</a>
+        <h2>👤 ข้อมูลผู้ใช้ (อาจารย์)</h2>
+        <form>
+            <div class="form-group">
+                <label>ชื่อ-นามสกุล</label>
+                <input type="text" value="นายสมชาย ใจดี">
+            </div>
+            <div class="form-group">
+                <label>อีเมล</label>
+                <input type="email" value="somchai@school.ac.th">
+            </div>
+            <div class="form-group">
+                <label>ตำแหน่ง</label>
+                <select>
+                    <option>ครูประจำชั้น (Advisor)</option>
+                    <option>ครูแนะแนว (Counselor)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>ประจำชั้นห้อง</label>
+                <input type="text" value="6/1">
+            </div>
+            <button type="button" class="btn-save">บันทึกการเปลี่ยนแปลง</button>
+        </form>
+    </div>
+</body>
+</html>
